@@ -1,0 +1,26 @@
+### all ignore ###
+/*
+/.**
+
+### WHITE LIST ###
+!/.bashrc
+
+!/.gitconfig_shared
+
+!/.config/
+
+!/.config/nvim/
+!/.config/nvim/**
+
+
+!/.vimrc
+!/.vim/
+!/.vim/**
+
+!/.bin/
+!/.bin/**
+
+!/README.md
+!/LICENSE
+!.gitignore
+!.gitkeep
