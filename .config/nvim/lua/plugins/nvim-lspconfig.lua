@@ -46,5 +46,9 @@ return {
         lspconfig.rust_analyzer.setup{
             capabilities = capabilities,
         }
+
+        lspconfig.bashls.setup{
+            capabilities = capabilities,
+        }
     end,
 }
