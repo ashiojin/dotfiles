@@ -23,6 +23,8 @@
 !/.bin/
 !/.bin/**
 
+!/.local.bin/
+
 !/README.md
 !/LICENSE
 !.gitignore
