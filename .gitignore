@@ -3,6 +3,9 @@
 /.**
 
 ### WHITE LIST ###
+!/.github/
+!/.github/**
+
 !/.bashrc
 
 !/.gitconfig_shared
