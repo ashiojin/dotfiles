@@ -34,8 +34,10 @@ link_to_homedir() {
 call_installers() {
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
-  source "${script_dir}"/.bin/installer/install_neovim_latest.sh
-  source "${script_dir}"/.bin/installer/install_rust.sh
+  source "${script_dir}"/installer/install_required_packages.sh
+
+  source "${script_dir}"/installer/install_neovim_latest.sh
+  source "${script_dir}"/installer/install_rust.sh
 }
 
 while [ $# -gt 0 ];do
