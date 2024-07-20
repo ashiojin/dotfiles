@@ -3,6 +3,8 @@ return {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'hrsh7th/cmp-nvim-lsp',
+
+        'ray-x/lsp_signature.nvim',
     },
 
     config = function()
@@ -11,6 +13,8 @@ return {
         local mason_lspconfig = require('mason-lspconfig')
         local cmp_nvim_lsp = require('cmp_nvim_lsp')
         local capabilities = cmp_nvim_lsp.default_capabilities()
+        local lsp_signature = require('lsp_signature')
+        local lsp_signature_settings = {}
 
         mason.setup()
         mason_lspconfig.setup()
@@ -37,6 +41,9 @@ return {
                     },
                 })
             end,
+            on_attach = function(client, bufnr)
+                lsp_signature.on_attach(lsp_signature_settings, bufnr)
+            end,
             settings = {
                 Lua = {}
             },
@@ -44,10 +51,16 @@ return {
         }
 
         lspconfig.rust_analyzer.setup{
+            on_attach = function(client, bufnr)
+                lsp_signature.on_attach(lsp_signature_settings, bufnr)
+            end,
             capabilities = capabilities,
         }
 
         lspconfig.bashls.setup{
+            on_attach = function(client, bufnr)
+                lsp_signature.on_attach(lsp_signature_settings, bufnr)
+            end,
             capabilities = capabilities,
         }
     end,
