@@ -34,7 +34,8 @@ link_to_homedir() {
 call_installers() {
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
-  "${script_dir}"/.bin/installer/install_neovim_latest.sh
+  source "${script_dir}"/.bin/installer/install_neovim_latest.sh
+  source "${script_dir}"/.bin/installer/install_rust.sh
 }
 
 while [ $# -gt 0 ];do
@@ -54,7 +55,6 @@ done
 
 link_to_homedir
 call_installers
+
 git config --global include.path "~/.gitconfig_shared"
 command echo -e "\e[1;36m Install completed!!!! \e[m"
-
-
