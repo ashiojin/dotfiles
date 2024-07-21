@@ -16,8 +16,8 @@ return {
         local lsp_signature = require('lsp_signature')
         local lsp_signature_settings = {}
 
-        mason.setup()
-        mason_lspconfig.setup()
+--        mason.setup()
+--        mason_lspconfig.setup()
         -- lspconfig setups are following --
 
         lspconfig.lua_ls.setup{
