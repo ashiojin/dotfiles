@@ -50,7 +50,12 @@ return {
             sources = cmp.config.sources({
                 { name = 'path' },
             }, {
-                { name = 'buffer' },
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' },
+                    },
+                },
             }),
             matching = { dissallow_symbol_nonprefix_matching = false },
         })
