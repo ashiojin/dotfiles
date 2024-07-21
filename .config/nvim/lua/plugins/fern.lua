@@ -19,4 +19,6 @@ end
 return {
     "lambdalisue/fern.vim",
     init = init_plugin,
+
+    enabled = false,
 }
