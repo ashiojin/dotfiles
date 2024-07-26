@@ -9,10 +9,16 @@ return {
     },
 
     opts = {
+
         close_if_last_window = true,
+
+        sources = {'filesystem', 'buffers', 'git_status', 'document_symbols'},
 
         commands = {
             open_and_next = function(state)
+                -- TODO: In `document_symbols`, a node can be opened in a buffer and
+                -- can have children. In this case, I want to open the node if it is
+                -- expanded, otherwise I just want to expand it.
                 local node = state.tree:get_node()
                 if node.type == 'directory' then
                     -- open the direcotry if it closed,
@@ -26,6 +32,7 @@ return {
                 end
             end,
             open_and_close_window = function(state)
+                -- TODO: Extract common code with open_and_next()
                 local node = state.tree:get_node()
                 if node.type == 'directory' then
                     -- open the direcotry if it closed,
@@ -67,13 +74,19 @@ return {
         vim.keymap.set(
             'n', '<space>w', ':Neotree action=focus toggle reveal source=filesystem<CR>',
             {
-                desc = ':Neotree'
+                desc = 'Neotree filesystem'
             }
         )
         vim.keymap.set(
             'n', '<space>b', ':Neotree action=focus toggle reveal source=buffers<CR>',
             {
-                desc = ':Neotree buffers'
+                desc = 'Neotree buffers'
+            }
+        )
+        vim.keymap.set(
+            'n', '<space>o', ':Neotree action=focus toggle reveal source=document_symbols<CR>',
+            {
+                desc = 'Neotree document symbols'
             }
         )
     end,
