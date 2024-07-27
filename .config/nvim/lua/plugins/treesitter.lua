@@ -1,71 +1,59 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
 
-    config = function()
-        local configs = require("nvim-treesitter.configs")
+        config = function()
+            local configs = require("nvim-treesitter.configs")
 
-        configs.setup({
-            sync_install = false,
-            ensure_installed = {
-                "bash",
+            configs.setup({
+                sync_install = false,
+                ensure_installed = {
+                    "bash",
 
-                "rust",
-                "c",
-                "lua",
-                "html",
+                    "rust",
+                    "c",
+                    "lua",
+                    "html",
 
-                "json",
-                "toml",
-                "yaml",
+                    "json",
+                    "toml",
+                    "yaml",
 
-                "markdown",
-                "markdown_inline",
+                    "markdown",
+                    "markdown_inline",
 
-                "diff",
+                    "diff",
 
-                "regex",
-                "vimdoc"
-            },
-            highlight = { enable = true },
-            indent = { enable = true },
-        })
-    end
---    event = { "LazyFile", "VeryLazy" },
+                    "regex",
+                    "vimdoc"
+                },
+                highlight = { enable = true },
+                indent = { enable = true },
 
---    init = function(plugin)
---        -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
---        -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
---        -- no longer trigger the **nvim-treesitter** module to be loaded in time.
---        -- Luckily, the only things that those plugins need are the custom queries, which we make available
---        -- during startup.
---        require("lazy.core.loader").add_to_rtp(plugin)
---        require("nvim-treesitter.query_predicates")
---    end,
+                -- rrethy/nvim-treesitter-textsubjects
+                textsubjects = {
+                    enable = true,
+                    prev_selection = '<A-.>',
+                    keymaps = {
+                        ['.'] = 'textsubjects-smart',
+                        ['a.'] = {
+                            'textsubjects-container-outer',
+                            desc = 'select outer containers (classes, functions, etc.)'
+                        },
+                        ['i.'] = {
+                            'textsubjects-container-inner',
+                            desc = 'select inside containers (classes, functions, etc.)'
+                        }
+                    },
+                }
+            })
+        end,
 
---    opts_extend = { "ensure_installed" },
---    opts = {
---        highlight = { enable = true },
---        indent = { enable = true },
---
---        ensure_installed = {
---            "bash",
---
---            "rust",
---            "c",
---            "lua",
---            "html",
---
---            "json",
---            "toml",
---            "yaml",
---
---            "markdown"
---            "markdown_inline"
---            "diff",
---            "regex",
---            "vimdoc",
---        },
---    },
---
+
+        dependencies = {
+            'RRethy/nvim-treesitter-textsubjects'
+        },
+    },
+
 }
