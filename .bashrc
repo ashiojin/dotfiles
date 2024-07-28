@@ -144,7 +144,7 @@ export NVM_DIR="$HOME/.nvm"
 #export DENO_INSTALL="$HOME/.deno"
 #PATH="$DENO_INSTALL/bin:$PATH"
 
-NVIM_LATEST="$HOME/.local.bin/nvim-linux64"
+NVIM_LATEST="$HOME/.local/bin/nvim-linux64"
 PATH="${NVIM_LATEST}/bin:$PATH"
 
 export PATH

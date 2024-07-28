@@ -23,7 +23,8 @@
 !/.bin/
 !/.bin/**
 
-!/.local.bin/
+!/.local/
+!/.local/bin/
 
 !/README.md
 !/LICENSE
