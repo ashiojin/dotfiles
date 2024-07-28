@@ -32,5 +32,8 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+
+  -- disable hererocks
+  rocks = { hererocks = false, },
 })
 
