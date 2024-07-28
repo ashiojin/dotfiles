@@ -64,4 +64,26 @@ return {
             capabilities = capabilities,
         }
     end,
+
+    init = function(_)
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+            callback = function(_)
+                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+                vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
+                vim.keymap.set('n', '<leader>i', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+                vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')
+                vim.keymap.set('n', '<leader>D', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+                vim.keymap.set('n', '<leader>T', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+
+                vim.keymap.set('n', '<leader>R', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+                vim.keymap.set('n', '<leader>F', '<cmd>lua vim.lsp.buf.format()<CR>')
+                vim.keymap.set('x', '<leader>F', '<cmd>lua vim.lsp.buf.format()<CR>')
+
+                vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+                vim.keymap.set('x', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+            end,
+        })
+    end,
 }

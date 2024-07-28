@@ -35,9 +35,9 @@ return {
         vim.keymap.set('n', '<f10>', function() dap.step_over() end, { desc = 'Step over' })
         vim.keymap.set('n', '<f11>', function() dap.step_into() end, { desc = 'Step into' })
         vim.keymap.set('n', '<f12>', function() dap.step_out() end, { desc = 'Step out' })
-        vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint' })
-        vim.keymap.set('n', '<leader>dt', function() dap.set_breakpoint(nil, nil, vim.fn.input('Trace point message: ')) end)
-        vim.keymap.set('n', '<leader>dl', function() dap.run_last() end, { desc = 'Re-runs the last debug adapter/configuration' })
+        vim.keymap.set('n', '<leader><c-b>', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint' })
+        vim.keymap.set('n', '<leader><c-t>', function() dap.set_breakpoint(nil, nil, vim.fn.input('Trace point message: ')) end)
+        vim.keymap.set('n', '<leader>DL', function() dap.run_last() end, { desc = 'Re-runs the last debug adapter/configuration' })
 
     end,
 }
