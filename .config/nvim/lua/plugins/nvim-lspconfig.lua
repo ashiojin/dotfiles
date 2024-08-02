@@ -54,6 +54,13 @@ return {
             on_attach = function(client, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
+            settings = {
+                ['rust-analyzer'] = {
+                    check = {
+                        command = 'clippy',
+                    },
+                },
+            },
             capabilities = capabilities,
         }
 
