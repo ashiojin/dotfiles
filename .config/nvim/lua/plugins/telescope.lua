@@ -3,6 +3,24 @@ return {
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
 
+    opts = {
+        defaults = {
+            layout_strategy = 'vertical',
+            layout_config = {
+                width = 0.8,
+                height = 0.9,
+                preview_cutoff = 40,
+                prompt_position = 'bottom',
+            },
+            mappings = {
+                i = {
+                    ['<C-L>'] = 'results_scrolling_up',
+                    ['<C-H>'] = 'results_scrolling_down',
+                },
+            },
+        },
+    },
+
     keys = {
         {
             "<leader>ff",
@@ -34,7 +52,7 @@ return {
                 require("telescope.builtin")
                     .diagnostics({})
             end,
-            desc = "Find Open Buffers",
+            desc = "Find Open Diagnostics",
         },
 
     },
