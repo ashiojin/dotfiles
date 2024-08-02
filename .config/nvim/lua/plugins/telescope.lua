@@ -28,5 +28,14 @@ return {
             end,
             desc = "Find Open Buffers",
         },
+        {
+            "<leader>fd",
+            function()
+                require("telescope.builtin")
+                    .diagnostics({})
+            end,
+            desc = "Find Open Buffers",
+        },
+
     },
 }
