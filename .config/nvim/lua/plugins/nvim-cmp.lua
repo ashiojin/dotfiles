@@ -6,6 +6,7 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
+        'folke/lazydev.nvim',
         -- TODO: Add snippet sources & its settings
         -- 'hrsh7th/vim-vsnip'
         -- 'hrsh7th/cmp-vsnip'
@@ -17,6 +18,7 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 -- { name = 'vsnip' },
+                { name = 'lazydev', group_index = 0 },
             }, {
                 { name = 'buffer' },
             }),
@@ -57,7 +59,14 @@ return {
                     },
                 },
             }),
-            matching = { dissallow_symbol_nonprefix_matching = false },
+            matching = {
+                disallow_fuzzy_matching = false,
+                disallow_fullfuzzy_matching = false,
+                disallow_partial_fuzzy_matching = true,
+                disallow_partial_matching = false,
+                disallow_prefix_unmatching = false,
+                disallow_symbol_nonprefix_matching = false,
+            },
         })
     end,
 }
