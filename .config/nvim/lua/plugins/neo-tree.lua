@@ -47,7 +47,12 @@ return {
                     state.commands['open'](state)
                     state.commands['close_window'](state)
                 end
-            end
+            end,
+            reload_and_reflesh = function(state)
+                state.commands['refresh'](state)
+                vim.cmd([[nohlsearch]])
+                vim.api.nvim_feedkeys('<C-l>', 'n', false)
+            end,
         },
         window = {
             mappings = {
@@ -67,6 +72,9 @@ return {
                 ['F'] = {
                     'focus_preview',
                 },
+                ['<C-l>'] = {
+                    command = 'reload_and_reflesh',
+                },
             },
         },
         buffers = {
@@ -75,7 +83,7 @@ return {
     },
 
 
-    init = function (lazy)
+    init = function (_)
         vim.keymap.set(
             'n', '<space>w', ':Neotree action=focus toggle reveal source=filesystem<CR>',
             {
