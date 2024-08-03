@@ -6,7 +6,7 @@ return {
     init = function(_)
         vim.api.nvim_create_user_command(
             'DapLoadSetting',
-            function (opts)
+            function (_)
                 require('nvim-dap-projects')
                     .search_project_config()
             end,
