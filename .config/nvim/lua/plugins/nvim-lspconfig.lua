@@ -14,8 +14,10 @@ return {
         local lsp_signature = require('lsp_signature')
         local lsp_signature_settings = {}
 
+        ------------------------------------
         -- lspconfig setups are following --
 
+        -- Lua
         lspconfig.lua_ls.setup{
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -23,6 +25,8 @@ return {
             capabilities = capabilities,
         }
 
+
+        -- Rust
         lspconfig.rust_analyzer.setup{
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -37,12 +41,48 @@ return {
             capabilities = capabilities,
         }
 
+        -- Bash
         lspconfig.bashls.setup{
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
             capabilities = capabilities,
         }
+
+        -- Typescript (Plugins: Vue)
+        local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+        lspconfig.tsserver.setup{
+            -- on_attach = function(_, bufnr)
+            --     lsp_signature.on_attach(lsp_signature_settings, bufnr)
+            -- end,
+            -- capabilities = capabilities,
+            init_options = {
+                plugins = {
+                    {
+                        name = '@vue/typescript-plugin',
+                        location = vue_language_server_path,
+                        languages = { 'vue' },
+                    },
+                },
+            },
+            filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        }
+
+        lspconfig.volar.setup{
+            on_attach = function(_, bufnr)
+                lsp_signature.on_attach(lsp_signature_settings, bufnr)
+            end,
+            capabilities = capabilities,
+        }
+        -- lspconfig.vuels.setup{
+        --     on_attach = function(_, bufnr)
+        --         lsp_signature.on_attach(lsp_signature_settings, bufnr)
+        --     end,
+        --     capabilities = capabilities,
+        -- }
+        --
+        --                                --
+        ------------------------------------
     end,
 
     init = function(_)
