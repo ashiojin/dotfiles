@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v4
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
       - name: Install dotfiles
         run: .bin/install.sh install
 
