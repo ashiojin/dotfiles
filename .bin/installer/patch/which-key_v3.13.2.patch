@@ -1,0 +1,15 @@
+diff --git a/lua/which-key/state.lua b/lua/which-key/state.lua
+index 83ffd71..5c62bc3 100644
+--- a/lua/which-key/state.lua
++++ b/lua/which-key/state.lua
+@@ -235,6 +235,10 @@ function M.execute(state, key, node)
+       keystr = '"' .. vim.v.register .. keystr
+     end
+   end
++  local get_mode = vim.api.nvim_get_mode()
++  if get_mode.mode == 'niI' then
++    keystr = '<C-O>' .. keystr -- I don't know why it works
++  end
+   Util.debug("feedkeys", tostring(state.mode), keystr)
+   local feed = vim.api.nvim_replace_termcodes(keystr, true, true, true)
+   vim.api.nvim_feedkeys(feed, "mit", false)

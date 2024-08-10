@@ -30,6 +30,7 @@
 !/LICENSE
 !.gitignore
 !.gitkeep
+!.gitmodules
 
 ### BLACK LIST ###
 .config/nvim/lazy-lock.json

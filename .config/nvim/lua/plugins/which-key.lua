@@ -1,8 +1,11 @@
 return {
-    'folke/which-key.nvim',
+--    'folke/which-key.nvim',
+    dir = '~/.config/nvim/src/which-key.nvim',
     event = 'VeryLazy',
     opts = {
+--        debug = true,
     },
+--    version = '2.x',
     keys = {
         {
             '<leader>?',

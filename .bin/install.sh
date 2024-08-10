@@ -38,6 +38,8 @@ call_installers() {
 
   source "${script_dir}"/installer/install_neovim_latest.sh
   source "${script_dir}"/installer/install_rust.sh
+
+  source "${script_dir}"/installer/patch-which-key-nvim.sh
 }
 
 while [ $# -gt 0 ];do
