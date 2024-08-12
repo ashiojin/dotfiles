@@ -26,6 +26,14 @@ return {
             "<leader>ff",
             function()
                 require("telescope.builtin")
+                    .resume({})
+            end,
+            desc = "Resume Telescope",
+        },
+        {
+            "<leader>fw",
+            function()
+                require("telescope.builtin")
                     .find_files({})
             end,
             desc = "Find File",
@@ -52,7 +60,23 @@ return {
                 require("telescope.builtin")
                     .diagnostics({})
             end,
-            desc = "Find Open Diagnostics",
+            desc = "Find Diagnostics",
+        },
+        {
+            "<leader>fs",
+            function()
+                require("telescope.builtin")
+                    .lsp_document_symbols({})
+            end,
+            desc = "Find Document Symbols",
+        },
+        {
+            "<leader>fj",
+            function()
+                require("telescope.builtin")
+                    .jumplist({})
+            end,
+            desc = "Find Jumplist",
         },
 
     },
