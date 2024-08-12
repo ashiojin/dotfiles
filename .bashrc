@@ -124,7 +124,8 @@ fi
 set -o vi
 export EDITOR=nvim
 
-alias ggll='git log --oneline --graph'
+alias gl='git log --oneline --graph'
+alias gs='git status'
 alias _dropcaches='sudo sh -c "echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a"'
 
 
