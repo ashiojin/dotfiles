@@ -26,7 +26,8 @@ return {
                     "diff",
 
                     "regex",
-                    "vimdoc"
+                    "vimdoc",
+                    "vue",
                 },
                 highlight = { enable = true },
                 indent = { enable = true },
