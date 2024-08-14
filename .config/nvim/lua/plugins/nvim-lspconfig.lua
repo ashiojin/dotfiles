@@ -90,6 +90,7 @@ return {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = function(_)
                 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+                vim.keymap.set('n', '<c-k>', '<cmd>lua vim.diagnostic.open_float()<CR>')
                 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
                 vim.keymap.set('n', '<leader>i', '<cmd>lua vim.lsp.buf.implementation()<CR>')
                 vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')
