@@ -9,25 +9,30 @@ return {
             configs.setup({
                 sync_install = false,
                 ensure_installed = {
-                    "bash",
+                    'bash',
 
-                    "rust",
-                    "c",
-                    "lua",
-                    "html",
+                    'rust',
+                    'c',
+                    'lua',
 
-                    "json",
-                    "toml",
-                    "yaml",
+                    'html',
+                    'css',
 
-                    "markdown",
-                    "markdown_inline",
+                    'typescript',
+                    'javascript',
+                    'vue',
 
-                    "diff",
+                    'json',
+                    'toml',
+                    'yaml',
 
-                    "regex",
-                    "vimdoc",
-                    "vue",
+                    'markdown',
+                    'markdown_inline',
+
+                    'diff',
+
+                    'regex',
+                    'vimdoc',
                 },
                 highlight = { enable = true },
                 indent = { enable = true },
