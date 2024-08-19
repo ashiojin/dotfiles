@@ -91,7 +91,7 @@ return {
             }
         )
         vim.keymap.set(
-            'n', '<space>b', ':Neotree action=focus toggle reveal source=buffers<CR>',
+            'n', '<space>b', ':Neotree action=focus toggle reveal right source=buffers<CR>',
             {
                 desc = 'Neotree buffers'
             }
