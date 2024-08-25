@@ -4,8 +4,10 @@ return {
         local dap = require('dap')
 
         local data_path = vim.fn.stdpath('data')
-        local codelldb_path = data_path .. '/mason/bin/codelldb'
 
+        ---- Addapters ----
+        -- Codelldb
+        local codelldb_path = data_path .. '/mason/bin/codelldb'
         dap.adapters.codelldb = {
             type = 'server',
             port = '${port}',
@@ -15,6 +17,20 @@ return {
             },
         }
 
+        -- vscode-js-debug
+        local dap_debug_server_path = data_path .. '/mason/bin/js-debug-adapter'
+        dap.adapters['pwa-node'] = {
+            type = 'server',
+            host = 'localhost',
+            port = '${port}',
+            executable = {
+                command = dap_debug_server_path,
+                args = { '${port}' }
+            }
+        }
+
+        ---- Languages ----
+        -- Rust
         dap.configurations.rust = {
             {
                 name = 'Launch file',
@@ -29,6 +45,18 @@ return {
             },
         }
 
+        -- Javascript
+        dap.configurations.javascript = {
+            {
+                type = 'pwa-node',
+                request = 'launch',
+                name = 'launch',
+                program = function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                end,
+                cwd = '${workspaceFolder}',
+            },
+        }
 
         -- Key Mappings
         vim.keymap.set('n', '<f5>', function() dap.continue() end, { desc = 'Continue' })
