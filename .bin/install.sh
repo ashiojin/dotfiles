@@ -41,6 +41,8 @@ call_installers() {
 
   source "${script_dir}"/installer/install_bats-core.sh
 
+  source "${script_dir}"/installer/install_apps_from_cargo.sh
+
   source "${script_dir}"/installer/patch-which-key-nvim.sh
 }
 
