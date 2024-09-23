@@ -85,7 +85,7 @@ return {
 
     init = function (_)
         vim.keymap.set(
-            'n', '<space>w', ':Neotree action=focus toggle reveal source=filesystem<CR>',
+            'n', '<space>wt', ':Neotree action=focus toggle reveal source=filesystem<CR>',
             {
                 desc = 'Neotree filesystem'
             }
