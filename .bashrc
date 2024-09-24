@@ -120,6 +120,26 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# # Color Definitions 
+# e.g. `echo -e "${ClRed}Here is red${ClReset}Here is normal color"`
+#  shellcheck disable=SC2034
+ClReset='\033[0m'
+#  shellcheck disable=SC2034
+ClRed='\033[0;31m'
+#  shellcheck disable=SC2034
+ClRedRev='\033[7;31m'
+#  shellcheck disable=SC2034
+ClYellow='\033[0;33m'
+#  shellcheck disable=SC2034
+ClYellowItalic='\033[3;33m'
+#  shellcheck disable=SC2034
+ClYellowUnderline='\033[4;33m'
+#  shellcheck disable=SC2034
+ClYellowCrossout='\033[9;33m'
+#  shellcheck disable=SC2034
+ClBgYellow='\033[0;30;43m'
+
 #
 set -o vi
 export EDITOR=nvim
@@ -164,5 +184,18 @@ alias foxitrd='/mnt/c/Program\ Files\ \(x86\)/Foxit\ Software/Foxit\ PDF\ Reader
 
 # Per machine environments
 if [ -f ~/.bashrc.local.bash ]; then
+    # shellcheck disable=SC1090
   . ~/.bashrc.local.bash
 fi
+
+# Health check
+function warn_if_env_isnt_set() {
+    local -n envname=${1}
+    [[ -z "${envname}" ]] && echo -e "${ClBgYellow}[Warn]${ClReset} ${!envname} isn't set. Check ~/.bashrc.local.bash"
+}
+function health_check() {
+    # For avante.nvim
+    warn_if_env_isnt_set ANTHROPIC_API_KEY
+}
+
+health_check
