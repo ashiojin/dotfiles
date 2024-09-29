@@ -19,7 +19,7 @@ set virtualedit=block
 " Display line numbers
 set number
 
-" coc.nvim may give messages that need to take more than 1-line to display
+"
 set cmdheight=2
 
 " Shorten CursorHold event occation timings to 300ms
@@ -86,18 +86,6 @@ inoremap <C-e> <End>
 inoremap <silent> <C-b> <Cmd>normal! b<CR>
 inoremap <silent> <C-f> <Cmd>normal! w<CR>
 
-
-"----------------------
-" Utilities for .vimrc
-"----------------------
-"" \brief Check if a plugin is installed.
-"" \param[in] plugin Plugin name (directory name).
-"" \return 1: installed, 0: not installed.
-"" see https://senooken.jp/post/2018/01/24/
-function! s:is_plugin_installed(plugin)
-    return globpath(&runtimepath, 'pack/*/*/' . a:plugin, 1) != ''
-endfunction
-
 "----------------------
 " File type
 "----------------------
@@ -143,17 +131,17 @@ augroup END
 "- .vimrc.local
 "-  See https://vim-jp.org/vim-users-jp/2009/12/27/Hack-112.html
 "--------------------
-augroup vimrc-local
-    autocmd!
-    autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
-augroup END
-
 function! s:vimrc_local(loc)
     let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
     for i in reverse(filter(files, 'filereadable(v:val)'))
         source `=i`
     endfor
 endfunction
+
+augroup vimrc-local
+    autocmd!
+    autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+augroup END
 
 "colorscheme ron
 "colorscheme vim
@@ -162,6 +150,7 @@ endfunction
 
 require("config.lazy")
 
+-- toggle quickfix window
 vim.keymap.set('n', '<leader>q', function ()
     local qf_exists = false
     for _, win in pairs(vim.fn.getwininfo()) do
@@ -179,3 +168,9 @@ vim.keymap.set('n', '<leader>q', function ()
         end
     end
 end, { desc = ':cwindow' })
+
+vim.keymap.set('n', 'gp', '<cmd>cprev<cr>', {desc=':cprev'})
+vim.keymap.set('n', 'gn', '<cmd>cnext<cr>', {desc=':cnext'})
+
+-- TODO: Load the first .vim/init.lua found by looking up from the workspace directory. Use for project specific settings.
+
