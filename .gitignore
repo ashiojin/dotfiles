@@ -15,6 +15,11 @@
 !/.config/nvim/
 !/.config/nvim/**
 
+!/.config/yazi/
+!/.config/yazi/**
+# should ignore ?
+/.config/yazi/package.toml
+/.config/yazi/plugins/**
 
 !/.vimrc
 !/.vim/
