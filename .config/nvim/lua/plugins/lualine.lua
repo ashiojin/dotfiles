@@ -3,7 +3,20 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
-    opts = function(_, opts)
---        table.insert(opts.sections.lualine_x, "😊")
-    end,
+    opts = {
+        sections = {
+            lualine_c = {
+                {'filename', path=1},
+            }
+        }
+    }
+    -- opts = function(_, opts)
+    --     table.remove(opts.sections.lualine_c, 1)
+    --     table.insert(opts.sections.lualine_c, {
+    --         {
+    --             'filename',
+    --             path = 1,
+    --         },
+    --     })
+    -- end,
 }
