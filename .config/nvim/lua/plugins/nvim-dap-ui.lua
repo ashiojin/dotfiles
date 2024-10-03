@@ -17,11 +17,13 @@ return {
                 dapui.open()
             end
             dap.listeners.before.event_terminated.dapui_config = function()
-                dapui.close()
+                -- dapui.close() -- Unexpected closing occurs when there are multiple processes, e.g. unit tests.
             end
             dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
             end
+
+            vim.keymap.set('n', '<leader>!', '<cmd>lua require("dapui").toggle()<cr>', {desc = 'Toggle dapui'})
         end,
     }
 }
