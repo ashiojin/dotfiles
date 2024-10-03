@@ -3,6 +3,7 @@ return {
     dependencies = {
         'mfussenegger/nvim-dap',
     },
+    enabled = false, -- I use `.vim/init.lua` for project specific configs
     init = function(_)
         vim.api.nvim_create_user_command(
             'DapLoadSetting',
