@@ -172,5 +172,34 @@ end, { desc = ':cwindow' })
 vim.keymap.set('n', 'gp', '<cmd>cprev<cr>', {desc=':cprev'})
 vim.keymap.set('n', 'gn', '<cmd>cnext<cr>', {desc=':cnext'})
 
--- TODO: Load the first .vim/init.lua found by looking up from the workspace directory. Use for project specific settings.
+-- Load the first .vim/init.lua found by looking up from the workspace directory
+local function load_project_config()
+    local function find_project_config(path)
+        local config_path = path .. '/.vim/init.lua'
+        if vim.fn.filereadable(config_path) == 1 then
+            return config_path
+        end
+        local parent = vim.fn.fnamemodify(path, ':h')
+        if parent == path then
+            return nil
+        end
+        return find_project_config(parent)
+    end
+
+    local cwd = vim.fn.getcwd()
+    local config_file = find_project_config(cwd)
+
+    if config_file then
+        vim.cmd('luafile ' .. config_file)
+        print('Loaded project config from: ' .. config_file)
+    end
+end
+
+-- Call the function to load project-specific config
+load_project_config()
+
+-- Register the command to reload project config
+vim.api.nvim_create_user_command('ReloadProjectConfig', function()
+    load_project_config()
+end, {})
 
