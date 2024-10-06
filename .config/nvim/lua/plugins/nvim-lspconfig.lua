@@ -51,7 +51,7 @@ return {
 
         -- Typescript (Plugins: Vue)
         local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-        lspconfig.tsserver.setup{
+        lspconfig.ts_ls.setup{
             -- on_attach = function(_, bufnr)
             --     lsp_signature.on_attach(lsp_signature_settings, bufnr)
             -- end,
