@@ -25,21 +25,22 @@ return {
             capabilities = capabilities,
         }
 
-
-        -- Rust
-        lspconfig.rust_analyzer.setup{
-            on_attach = function(_, bufnr)
-                lsp_signature.on_attach(lsp_signature_settings, bufnr)
-            end,
-            settings = {
-                ['rust-analyzer'] = {
-                    check = {
-                        command = 'clippy',
-                    },
-                },
-            },
-            capabilities = capabilities,
-        }
+        -- Removed rust-analyzer setup since 2024/10/11 because of starting to use rustaceanvim which will set up rust-analizer
+        -- (see: https://github.com/mrcjkb/rustaceanvim?tab=readme-ov-file#zap-quick-setup)
+        -- -- Rust
+        -- lspconfig.rust_analyzer.setup{
+        --     on_attach = function(_, bufnr)
+        --         lsp_signature.on_attach(lsp_signature_settings, bufnr)
+        --     end,
+        --     settings = {
+        --         ['rust-analyzer'] = {
+        --             check = {
+        --                 command = 'clippy',
+        --             },
+        --         },
+        --     },
+        --     capabilities = capabilities,
+        -- }
 
         -- Bash
         lspconfig.bashls.setup{
