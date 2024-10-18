@@ -17,7 +17,7 @@ return {
         ------------------------------------
         -- lspconfig setups are following --
 
-        -- Lua
+        -- # Lua
         lspconfig.lua_ls.setup{
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -25,9 +25,9 @@ return {
             capabilities = capabilities,
         }
 
+        -- -- # Rust
         -- Removed rust-analyzer setup since 2024/10/11 because of starting to use rustaceanvim which will set up rust-analizer
         -- (see: https://github.com/mrcjkb/rustaceanvim?tab=readme-ov-file#zap-quick-setup)
-        -- -- Rust
         -- lspconfig.rust_analyzer.setup{
         --     on_attach = function(_, bufnr)
         --         lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -42,7 +42,12 @@ return {
         --     capabilities = capabilities,
         -- }
 
-        -- Bash
+        -- # Cpp (clangd)
+        lspconfig.clangd.setup {
+        }
+
+
+        -- # Bash
         lspconfig.bashls.setup{
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -50,7 +55,7 @@ return {
             capabilities = capabilities,
         }
 
-        -- Typescript (Plugins: Vue)
+        -- # Typescript (Plugins: Vue)
         local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
         lspconfig.ts_ls.setup{
             -- on_attach = function(_, bufnr)
