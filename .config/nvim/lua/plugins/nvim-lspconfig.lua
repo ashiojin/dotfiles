@@ -18,7 +18,7 @@ return {
         -- lspconfig setups are following --
 
         -- # Lua
-        lspconfig.lua_ls.setup{
+        lspconfig.lua_ls.setup {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
@@ -46,9 +46,13 @@ return {
         lspconfig.clangd.setup {
         }
 
+        -- # C#
+        lspconfig.csharp_ls.setup {
+        }
+
 
         -- # Bash
-        lspconfig.bashls.setup{
+        lspconfig.bashls.setup {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
@@ -56,8 +60,9 @@ return {
         }
 
         -- # Typescript (Plugins: Vue)
-        local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-        lspconfig.ts_ls.setup{
+        local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
+        '/node_modules/@vue/language-server'
+        lspconfig.ts_ls.setup {
             -- on_attach = function(_, bufnr)
             --     lsp_signature.on_attach(lsp_signature_settings, bufnr)
             -- end,
@@ -74,7 +79,7 @@ return {
             filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
         }
 
-        lspconfig.volar.setup{
+        lspconfig.volar.setup {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
