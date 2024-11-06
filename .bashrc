@@ -172,6 +172,9 @@ PATH="${NVIM_LATEST}/bin:$PATH"
 # PATH: bats-core
 PATH="$HOME/.local/bin/bats/bin:$PATH"
 
+# PATH: tools installed by `yarn global add`
+PATH="$HOME/.yarn/bin:$PATH"
+
 export PATH
 
 # Cargo
