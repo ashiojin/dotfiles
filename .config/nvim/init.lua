@@ -191,7 +191,7 @@ local function load_project_config()
 
     if config_file then
         vim.cmd('luafile ' .. config_file)
-        print('Loaded project config from: ' .. config_file)
+        require('fidget').notify('Loaded : ' .. config_file)
     end
 end
 
