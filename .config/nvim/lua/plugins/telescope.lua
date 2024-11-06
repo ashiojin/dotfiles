@@ -13,9 +13,21 @@ return {
                 prompt_position = 'bottom',
             },
             mappings = {
-                i = {
+                n = {
+                    ['<C-U>'] = 'results_scrolling_up',
+                    ['<C-D>'] = 'results_scrolling_down',
                     ['<C-L>'] = 'results_scrolling_up',
                     ['<C-H>'] = 'results_scrolling_down',
+                    ['<PageUp>'] = 'preview_scrolling_up',
+                    ['<PageDown>'] = 'preview_scrolling_down',
+                },
+                i = {
+                    ['<C-U>'] = false,
+
+                    ['<C-L>'] = 'results_scrolling_up',
+                    ['<C-H>'] = 'results_scrolling_down',
+                    ['<PageUp>'] = 'preview_scrolling_up',
+                    ['<PageDown>'] = 'preview_scrolling_down',
                 },
             },
         },
