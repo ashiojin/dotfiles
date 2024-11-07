@@ -29,6 +29,19 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
 
+            formatting = {
+                format = function (_entry, vim_item) -- FIXME: WORKAROUND: A completion list window takes up entire window width, leaving a document window without enough width.
+                    local win_width = vim.fn.winwidth(0)
+                    local max_menu_width = (win_width - 20) / 3
+                    -- | abbr | kind(?) | menu     |
+                    -- shorten `menu`
+                    if vim_item.menu ~= nil and #vim_item.menu > max_menu_width then
+                        vim_item.menu = string.sub(vim_item.menu, 1, max_menu_width) .. '…'
+                    end
+                    return vim_item
+                end,
+            },
+
             window = {
                 -- TODO: What is this?
             },
