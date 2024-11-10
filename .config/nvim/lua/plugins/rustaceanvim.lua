@@ -25,6 +25,11 @@ return {
                         check = {
                             command = 'clippy',
                         },
+                        completion = {
+                            callable = {
+                                snippets = 'add_parentheses', -- none, fill_arguments
+                            },
+                        },
                     },
                 },
             },
