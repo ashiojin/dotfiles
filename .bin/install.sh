@@ -7,7 +7,7 @@ helpmsg() {
 }
 
 link_to_homedir() {
-  command echo "backup old dotfiles..."
+  command echo "# backup old dotfiles..."
   if [ ! -d "$HOME/.dotbackup" ];then
     command echo "$HOME/.dotbackup not found. Auto Make it"
     command mkdir "$HOME/.dotbackup"
@@ -37,22 +37,25 @@ link_to_homedir() {
 call_installers() {
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
-  command echo "Call installers:"
-  command echo "1:"
+  command echo "# Call installers:"
+  command echo "## required_packages.sh:"
   source "${script_dir}"/installer/install_required_packages.sh
 
-  command echo "2:"
+  command echo "## nvm:"
+  source "${script_dir}"/installer/install_nvm.sh
+
+  command echo "## neovim:"
   source "${script_dir}"/installer/install_neovim_latest.sh
-  command echo "3:"
+  command echo "## rust:"
   source "${script_dir}"/installer/install_rust.sh
 
-  command echo "4:"
+  command echo "## bats-core:"
   source "${script_dir}"/installer/install_bats-core.sh
 
-  command echo "5:"
+  command echo "## apps_from_cargo:"
   source "${script_dir}"/installer/install_apps_from_cargo.sh
 
-  command echo "6:"
+  command echo "## patch which-key.nvim:"
   source "${script_dir}"/installer/patch-which-key-nvim.sh
 }
 
@@ -76,4 +79,5 @@ source "$HOME/.bashrc"
 call_installers
 
 git config --global include.path "$HOME/.gitconfig_shared"
+source "$HOME/.bashrc"
 command echo -e "\e[1;36m Install completed!!!! \e[m"

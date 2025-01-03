@@ -7,7 +7,7 @@ function apply-patch-to-which-key() {
     WHICHKEY="${SRC}/which-key.nvim"
 
     cd "${WHICHKEY}"
-    patch -p1 < "${PATCH}"
+    patch -tNp1 < "${PATCH}" || true # it would be already patched
 }
 
 apply-patch-to-which-key
