@@ -6,7 +6,7 @@ function install() {
     sudo apt install -y fd-find ripgrep
 
     # Ubuntu's fd package uses `fdfind` as the binary, not the expected `fd`.
-    ln -s $(which fdfind) ~/.local/bin/fd
+    ln -snf $(which fdfind) ~/.local/bin/fd
 }
 
 install

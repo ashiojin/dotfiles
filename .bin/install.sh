@@ -18,10 +18,13 @@ link_to_homedir() {
   if [[ "$HOME" != "$dotdir" ]];then
     for f in $dotdir/.??*; do
       [[ `basename $f` == ".git" ]] && continue
+      command echo "Make link to $f"
       if [[ -L "$HOME/`basename $f`" ]];then
+        command echo " $HOME/`basename $f` is a symbolic link. Remove it."
         command rm -f "$HOME/`basename $f`"
       fi
       if [[ -e "$HOME/`basename $f`" ]];then
+        command echo " backup $HOME/`basename $f`"
         command mv "$HOME/`basename $f`" "$HOME/.dotbackup"
       fi
       command ln -snf $f $HOME
@@ -34,15 +37,22 @@ link_to_homedir() {
 call_installers() {
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
+  command echo "Call installers:"
+  command echo "1:"
   source "${script_dir}"/installer/install_required_packages.sh
 
+  command echo "2:"
   source "${script_dir}"/installer/install_neovim_latest.sh
+  command echo "3:"
   source "${script_dir}"/installer/install_rust.sh
 
+  command echo "4:"
   source "${script_dir}"/installer/install_bats-core.sh
 
+  command echo "5:"
   source "${script_dir}"/installer/install_apps_from_cargo.sh
 
+  command echo "6:"
   source "${script_dir}"/installer/patch-which-key-nvim.sh
 }
 
@@ -62,6 +72,7 @@ while [ $# -gt 0 ];do
 done
 
 link_to_homedir
+source "$HOME/.bashrc"
 call_installers
 
 git config --global include.path "$HOME/.gitconfig_shared"

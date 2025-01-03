@@ -6,7 +6,12 @@ function install_apps() {
     cargo install --locked yazi-fm yazi-cli
 
     # yazi plugins
-    ya pack -a yazi-rs/plugins:git
+    local t=$(ya pack --list | grep 'yazi-rs/plugins:git')
+    if [[ -n "$t" ]]; then
+        command echo "yazi-rs/plusins:git already installed"
+    else
+        ya pack -a yazi-rs/plugins:git
+    fi
 }
 
 install_apps
