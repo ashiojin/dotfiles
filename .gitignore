@@ -32,6 +32,7 @@
 !/.local/bin/
 
 !/.opt/
+!/.opt/scripts/
 !/.opt/scripts/**
 
 !/README.md
