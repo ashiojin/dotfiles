@@ -243,6 +243,9 @@ if s:is_plugin_installed('coc.nvim')
     "  - 
 endif " s:is_plugin_installed('coc.nvim')
 
+if s:is_plugin_installed('bufsel.vim')
+    nnoremap <silent><nowait> <leader>b :<C-u>BufselOpen<CR>
+endif " s:is_plugin_installed('bufsel.vim')
 
 "--------------------
 "- .vimrc.local

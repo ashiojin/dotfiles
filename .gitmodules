@@ -1,9 +1,9 @@
-[submodule ".vim/pack/buffergator/start/vim-buffergator"]
-	path = .vim/pack/buffergator/start/vim-buffergator
-	url = https://github.com/jeetsukumaran/vim-buffergator.git
 [submodule ".vim/pack/fern/start/vim-fern"]
 	path = .vim/pack/fern/start/vim-fern
 	url = https://github.com/lambdalisue/vim-fern.git
 [submodule ".config/nvim/src/which-key.nvim"]
 	path = .config/nvim/src/which-key.nvim
 	url = https://github.com/folke/which-key.nvim.git
+[submodule ".vim/pack/dev/start/vader.vim"]
+	path = .vim/pack/dev/start/vader.vim
+	url = https://github.com/junegunn/vader.vim.git
