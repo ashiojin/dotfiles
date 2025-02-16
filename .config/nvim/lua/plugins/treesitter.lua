@@ -11,6 +11,12 @@ return {
                 ensure_installed = {
                     'bash',
 
+                    'git_config',
+                    'git_rebase',
+                    'gitattributes',
+                    'gitcommit',
+                    'gitignore',
+
                     'rust',
                     'c',
                     'lua',
