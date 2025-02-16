@@ -189,6 +189,11 @@ export RUSTUP_HOME="$HOME/.rustup"
 # Aliases for Windows Applications
 alias foxitrd='/mnt/c/Program\ Files\ \(x86\)/Foxit\ Software/Foxit\ PDF\ Reader/FoxitPDFReader.exe'
 
+
+sl() {
+    echo "____🚂____"
+}
+
 # Per machine environments
 if [ -f ~/.bashrc.local.bash ]; then
     # shellcheck disable=SC1090
