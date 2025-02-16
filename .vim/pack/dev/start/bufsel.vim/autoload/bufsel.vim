@@ -26,11 +26,11 @@ endfunction
 function! bufsel#open_buflist() abort
     " "bufsel#open_buflist()"
 
-    let win_id_from = win_getid()
+    let win_id_target = win_getid()
     if bufexists(s:bufsel_list_buffer)
         " Go to the buffer
         let winid = bufwinid(s:bufsel_list_buffer)
-        let win_id_from = s:target_win_id
+        let win_id_target = exists('s:target_win_id') ? s:target_win_id : winid
         if winid isnot# -1
             " "already exists & window opened " . s:bufsel_list_buffer
             call win_gotoid(winid)
@@ -98,7 +98,7 @@ function! bufsel#open_buflist() abort
 
     " Store list to buffer
     let s:buf_list = buf_list
-    let s:target_win_id = win_id_from
+    let s:target_win_id = win_id_target
     call bufsel#popup_close()
     let s:popup_id = v:none
 endfunction
