@@ -90,12 +90,12 @@ return {
                 desc = 'Neotree filesystem'
             }
         )
-        vim.keymap.set(
-            'n', '<space>b', ':Neotree action=focus toggle reveal right source=buffers<CR>',
-            {
-                desc = 'Neotree buffers'
-            }
-        )
+        -- vim.keymap.set(
+        --     'n', '<space>b', ':Neotree action=focus toggle reveal right source=buffers<CR>',
+        --     {
+        --         desc = 'Neotree buffers'
+        --     }
+        -- )
         vim.keymap.set(
             'n', '<space>o', ':Neotree action=focus toggle reveal source=document_symbols<CR>',
             {

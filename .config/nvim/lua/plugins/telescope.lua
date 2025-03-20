@@ -59,7 +59,7 @@ return {
             desc = "Grep",
         },
         {
-            "<leader>fb",
+            "<leader>b",
             function()
                 require("telescope.builtin")
                     .buffers({})
