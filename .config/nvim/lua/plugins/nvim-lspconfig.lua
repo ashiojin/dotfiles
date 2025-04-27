@@ -94,6 +94,10 @@ return {
         --
         --                                --
         ------------------------------------
+
+        lspconfig.sqls.setup{
+            cmd = {"sqls", "-config", "~/.config/sqls/config.yaml", "postgresql"},
+        }
     end,
 
     init = function(_)
