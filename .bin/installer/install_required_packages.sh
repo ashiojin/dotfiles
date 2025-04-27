@@ -8,6 +8,7 @@ function install() {
 
     sudo apt install -y clang lld
     sudo apt install -y shellcheck
+    sudo apt install -y fswatch
     # Ubuntu's fd package uses `fdfind` as the binary, not the expected `fd`.
     ln -snf $(which fdfind) ~/.local/bin/fd
 }

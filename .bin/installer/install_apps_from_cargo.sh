@@ -9,6 +9,7 @@ function install_apps() {
     local t=$(ya pack --list | grep 'yazi-rs/plugins:git')
     if [[ -n "$t" ]]; then
         command echo "yazi-rs/plusins:git already installed"
+        ya pack -u # it can be failed.
     else
         ya pack -a yazi-rs/plugins:git
     fi

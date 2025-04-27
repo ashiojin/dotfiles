@@ -166,7 +166,8 @@ export NVM_DIR="$HOME/.nvm"
 #PATH="$DENO_INSTALL/bin:$PATH"
 
 # PATH: nvim
-NVIM_LATEST="$HOME/.local/bin/nvim-linux64"
+NVIM_LATEST="$HOME/.local/bin/nvim-0.11/nvim-linux-x86_64"
+#  for v0.10 : NVIM_LATEST="$HOME/.local/bin/nvim-linux64"
 PATH="${NVIM_LATEST}/bin:$PATH"
 
 # PATH: bats-core
@@ -174,6 +175,15 @@ PATH="$HOME/.local/bin/bats/bin:$PATH"
 
 # PATH: tools installed by `yarn global add`
 PATH="$HOME/.yarn/bin:$PATH"
+
+# PATH: for binalies from lualocks
+PATH="$HOME/.luarocks/bin:$PATH"
+
+export BUN_INSTALL="${HOME}/.local/bun"
+PATH="$BUN_INSTALL/bin:$PATH"
+
+export ZIG_INSTALL="${HOME}/.local/zig"
+PATH="${ZIG_INSTALL}/using:$PATH"
 
 export PATH
 
@@ -211,3 +221,7 @@ function health_check() {
 }
 
 health_check
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
