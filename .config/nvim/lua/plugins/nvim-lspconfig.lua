@@ -2,15 +2,15 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
-        'hrsh7th/cmp-nvim-lsp',
+        -- 'hrsh7th/cmp-nvim-lsp',
 
         'ray-x/lsp_signature.nvim',
     },
 
     config = function()
         local lspconfig = require('lspconfig')
-        local cmp_nvim_lsp = require('cmp_nvim_lsp')
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        -- local cmp_nvim_lsp = require('cmp_nvim_lsp')
+        -- local capabilities = cmp_nvim_lsp.default_capabilities()
         local lsp_signature = require('lsp_signature')
         local lsp_signature_settings = {}
 

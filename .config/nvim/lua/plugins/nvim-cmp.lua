@@ -11,6 +11,7 @@ return {
         -- 'hrsh7th/vim-vsnip'
         -- 'hrsh7th/cmp-vsnip'
     },
+    enabled = false,
 
     config = function()
         local cmp = require('cmp')

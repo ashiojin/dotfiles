@@ -12,11 +12,26 @@ return {
             keymap = {
                 accept = "<C-]>",
                 accept_word = "<C-f>",
-                accept_line = "<C-F>",
+                accept_line = "<M-f>",
                 next = "<C-b>",
                 prev = false,
                 dismiss = "<C-_>",
             },
         },
     },
+    init = function()
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "BlinkCmpMenuOpen",
+            callback = function()
+                vim.b.copilot_suggestion_hidden = true
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "BlinkCmpMenuClose",
+            callback = function()
+                vim.b.copilot_suggestion_hidden = false
+            end,
+        })
+    end,
 }
