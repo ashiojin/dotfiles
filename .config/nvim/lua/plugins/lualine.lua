@@ -1,22 +1,24 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+        'AndreM222/copilot-lualine',
+        "nvim-tree/nvim-web-devicons",
+    },
 
     opts = {
         sections = {
             lualine_c = {
-                {'filename', path=1},
-            }
-        }
+                { 'filename', path = 1 },
+            },
+            lualine_x = {
+                {
+                    'copilot',
+                    show_colors = true,
+                    show_loading = true,
+                },
+                'encoding', 'fileformat', 'filetype',
+            },
+        },
     }
-    -- opts = function(_, opts)
-    --     table.remove(opts.sections.lualine_c, 1)
-    --     table.insert(opts.sections.lualine_c, {
-    --         {
-    --             'filename',
-    --             path = 1,
-    --         },
-    --     })
-    -- end,
 }
