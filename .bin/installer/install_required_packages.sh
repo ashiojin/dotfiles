@@ -11,6 +11,8 @@ function install() {
     sudo apt install -y fswatch
     # Ubuntu's fd package uses `fdfind` as the binary, not the expected `fd`.
     ln -snf $(which fdfind) ~/.local/bin/fd
+
+    sudo apt install -y gh
 }
 
 install
