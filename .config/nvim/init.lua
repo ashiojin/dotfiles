@@ -169,8 +169,8 @@ vim.keymap.set('n', '<leader>q', function ()
     end
 end, { desc = ':cwindow' })
 
-vim.keymap.set('n', 'gp', '<cmd>cprev<cr>', {desc=':cprev'})
-vim.keymap.set('n', 'gn', '<cmd>cnext<cr>', {desc=':cnext'})
+vim.keymap.set('n', '<leader>p', '<cmd>cprev<cr>', {desc=':cprev'})
+vim.keymap.set('n', '<leader>n', '<cmd>cnext<cr>', {desc=':cnext'})
 
 -- Load the first .vim/init.lua found by looking up from the workspace directory
 local function load_project_config()
