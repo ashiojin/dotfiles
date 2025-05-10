@@ -14,6 +14,9 @@ return {
         local lsp_signature = require('lsp_signature')
         local lsp_signature_settings = {}
 
+        local mason_registory = require('mason-registry')
+        -- mason_registory.refresh(cb)
+
         ------------------------------------
         -- lspconfig setups are following --
 
@@ -22,7 +25,7 @@ return {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
-            capabilities = capabilities,
+            -- capabilities = capabilities,
         }
 
         -- -- # Rust
@@ -56,12 +59,17 @@ return {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
-            capabilities = capabilities,
+            -- capabilities = capabilities,
         }
 
         -- # Typescript (Plugins: Vue)
-        local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
-        '/node_modules/@vue/language-server'
+        -- WORKAROUND @ 2025/05/10: `Package:get_install_path()` has been removed...
+        --  see: https://github.com/mason-org/mason.nvim/releases/tag/v2.0.0
+        -- local vue_language_server_path = mason_registory.get_package('vue-language-server'):get_install_path() ..
+        -- '/node_modules/@vue/language-server'
+
+        local vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
+
         lspconfig.ts_ls.setup {
             -- on_attach = function(_, bufnr)
             --     lsp_signature.on_attach(lsp_signature_settings, bufnr)
@@ -83,7 +91,7 @@ return {
             on_attach = function(_, bufnr)
                 lsp_signature.on_attach(lsp_signature_settings, bufnr)
             end,
-            capabilities = capabilities,
+            -- capabilities = capabilities,
         }
         -- lspconfig.vuels.setup{
         --     on_attach = function(_, bufnr)
