@@ -23,5 +23,15 @@ return {
         keymaps = {
             show_help = '<f1>'
         },
+        open_file_function = function(chosen_file, config, state)
+            local openers = require('yazi.openers')
+            local is_dir = vim.fn.isdirectory(chosen_file) == 1
+            if is_dir then
+                require('yazi').yazi(config, chosen_file)
+            else
+                openers.open_file(chosen_file)
+            end
+
+        end
     },
 }
