@@ -3,7 +3,4 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
     },
-    keys = {
-        { '<leader>fT', ':TodoTelescope<CR>', desc = 'TodoTelescope' },
-    },
 }

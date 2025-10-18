@@ -90,6 +90,11 @@ return {
             end,
             desc = "Find Jumplist",
         },
+        {
+            '<leader>fT',
+            ':TodoTelescope<CR>',
+            desc = 'TodoTelescope'
+        },
 
     },
 }
