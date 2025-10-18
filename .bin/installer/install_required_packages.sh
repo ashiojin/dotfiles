@@ -13,6 +13,7 @@ function install() {
     ln -snf $(which fdfind) ~/.local/bin/fd
 
     sudo apt install -y gh
+    sudo apt install -y git-lfs
 }
 
 install
