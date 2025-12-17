@@ -75,7 +75,7 @@ while [ $# -gt 0 ];do
 done
 
 link_to_homedir
-source "$HOME/.bashrc"
+source .bash_profile
 command echo "---- variables for debug ----"
 command echo " PATH: '${PATH}'"
 command echo " NVM_DIR: '${NVM_DIR}'"
@@ -83,5 +83,4 @@ command echo "-----------------------------"
 call_installers
 
 git config --global include.path "$HOME/.gitconfig_shared"
-source "$HOME/.bashrc"
 command echo -e "\e[1;36m Install completed!!!! \e[m"

@@ -6,6 +6,7 @@
 !/.github/
 !/.github/**
 
+!/.bash_profile
 !/.bashrc
 
 !/.gitconfig_shared
