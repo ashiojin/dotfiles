@@ -76,6 +76,10 @@ done
 
 link_to_homedir
 source "$HOME/.bashrc"
+command echo "---- variables for debug ----"
+command echo " PATH: '${PATH}'"
+command echo " NVM_DIR: '${NVM_DIR}'"
+command echo "-----------------------------"
 call_installers
 
 git config --global include.path "$HOME/.gitconfig_shared"
