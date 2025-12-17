@@ -14,6 +14,9 @@ function install() {
 
     sudo apt install -y gh
     sudo apt install -y git-lfs
+
+    # For mason.nvim
+    sudo apt install -y golang-go
 }
 
 install
