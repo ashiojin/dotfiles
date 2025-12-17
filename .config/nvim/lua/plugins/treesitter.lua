@@ -1,12 +1,13 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
 
         config = function()
-            local configs = require("nvim-treesitter.configs")
+--            local configs = require("nvim-treesitter.configs")
 
-            configs.setup({
+            return {
                 sync_install = false,
                 ensure_installed = {
                     'bash',
@@ -44,28 +45,28 @@ return {
                 indent = { enable = true },
 
                 -- rrethy/nvim-treesitter-textsubjects
-                textsubjects = {
-                    enable = true,
-                    prev_selection = '<A-.>',
-                    keymaps = {
-                        ['.'] = 'textsubjects-smart',
-                        ['a.'] = {
-                            'textsubjects-container-outer',
-                            desc = 'select outer containers (classes, functions, etc.)'
-                        },
-                        ['i.'] = {
-                            'textsubjects-container-inner',
-                            desc = 'select inside containers (classes, functions, etc.)'
-                        }
-                    },
-                }
-            })
+                -- textsubjects = {
+                --     enable = true,
+                --     prev_selection = '<A-.>',
+                --     keymaps = {
+                --         ['.'] = 'textsubjects-smart',
+                --         ['a.'] = {
+                --             'textsubjects-container-outer',
+                --             desc = 'select outer containers (classes, functions, etc.)'
+                --         },
+                --         ['i.'] = {
+                --             'textsubjects-container-inner',
+                --             desc = 'select inside containers (classes, functions, etc.)'
+                --         }
+                --     },
+                -- }
+            }
         end,
 
-
         dependencies = {
-            'RRethy/nvim-treesitter-textsubjects'
+--            'RRethy/nvim-treesitter-textsubjects', -- ???
         },
+
     },
 
 }
