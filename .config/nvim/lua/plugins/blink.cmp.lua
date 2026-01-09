@@ -6,6 +6,7 @@ return {
     -- use a release tag to download pre-built binaries
     version = '1.*',
 
+    enabled = true,
     -- @module: 'blink.cmp'
     -- @type blink.cmp.Config
     opts = {
@@ -29,6 +30,7 @@ return {
             ['<C-]>'] = {
                 function(cmp)
                     cmp.hide() -- or `cmp.cancel()` ?
+                    --cmp.cancel()
                     return false
                 end,
                 'fallback_to_mappings', -- for Copilot-lua

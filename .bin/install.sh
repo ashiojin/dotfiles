@@ -44,6 +44,9 @@ call_installers() {
   command echo "## nvm:"
   source "${script_dir}"/installer/install_nvm.sh
 
+  command echo "## nvm:"
+  source "${script_dir}"/installer/install_bun.sh
+
   command echo "## neovim:"
   source "${script_dir}"/installer/install_neovim_latest.sh
   command echo "## rust:"

@@ -13,6 +13,9 @@ function install_apps() {
     else
         ya pack -a yazi-rs/plugins:git
     fi
+
+    # tree-sitter-cli
+    cargo install --locked tree-sitter-cli
 }
 
 install_apps
