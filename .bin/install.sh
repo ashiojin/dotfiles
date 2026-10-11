@@ -60,6 +60,9 @@ call_installers() {
 
   command echo "## patch which-key.nvim:"
   source "${script_dir}"/installer/patch-which-key-nvim.sh
+
+  command echo "## gemini-cli:"
+  source "${script_dir}"/installer/install_gemini_cli.sh
 }
 
 while [ $# -gt 0 ];do

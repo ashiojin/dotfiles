@@ -44,3 +44,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 . "$HOME/.cargo/env"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/mori/.local/bin:$PATH"

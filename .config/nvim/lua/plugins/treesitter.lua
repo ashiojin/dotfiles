@@ -19,6 +19,7 @@ return {
                 'c',
                 'lua',
 
+                'wgsl_bevy', -- TODO: When 'wesl' (or something similar) is available, switch to that
                 'wgsl',
 
                 'html',

@@ -145,6 +145,7 @@ set -o vi
 export EDITOR=nvim
 
 alias gl='git log --oneline --graph'
+alias gl='git log --oneline --graph --all'
 alias gs='git status'
 alias _dropcaches='sudo sh -c "echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a"'
 
@@ -181,3 +182,7 @@ function health_check() {
 }
 
 health_check
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/mori/.local/bin:$PATH"

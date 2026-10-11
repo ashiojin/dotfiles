@@ -1,9 +1,20 @@
 return {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false, -- set this if you want to always pull the latest change
+    --version = false, -- set this if you want to always pull the latest change
+    enabled = false,
     opts = {
-        provider = "claude",
+        --provider = "claude",
+        provider = "gemini-cli",
+        acp_providers = {
+            ["gemini-cli"] = {
+                command = "gemini",
+                args = { "--acp" },
+                env = {
+                    NODE_NO_WARNINGS = "1",
+                },
+            },
+        }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",

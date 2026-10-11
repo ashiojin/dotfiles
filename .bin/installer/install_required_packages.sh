@@ -17,6 +17,9 @@ function install() {
 
     # For mason.nvim
     sudo apt install -y golang-go
+
+    # WSL
+    sudo apt install -y liblnk-utils
 }
 
 install

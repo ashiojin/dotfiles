@@ -31,7 +31,7 @@ return {
         },
         {
             '<leader>OC',
-            '<cmd>OverseerRunCmd<cr>',
+            '<cmd>OverseerShell<cr>',
             mode = 'n',
             desc = "Input new task for Overseer",
         },
