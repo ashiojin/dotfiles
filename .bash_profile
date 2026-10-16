@@ -43,7 +43,9 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env"]; then
+    . "$HOME/.cargo/env"
+fi
 
 
 # Added by Antigravity CLI installer

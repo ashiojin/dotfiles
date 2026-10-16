@@ -1,6 +1,7 @@
 return {
 --    'folke/which-key.nvim',
     dir = '~/.config/nvim/src/which-key.nvim',
+    enabled = false,
     event = 'VeryLazy',
     opts = {
 --        debug = true,

@@ -3,15 +3,17 @@ set -ue
 
 function install_apps() {
     # yazi: file manager
-    cargo install --locked yazi-fm yazi-cli
+    cargo install --force yazi-build
+    # OLD: cargo install --locked yazi-fm yazi-cli
+    # * see: https://yazi-rs.github.io/docs/installation/#crates
 
     # yazi plugins
-    local t=$(ya pack --list | grep 'yazi-rs/plugins:git')
+    local t=$(ya pkg list | grep 'yazi-rs/plugins:git')
     if [[ -n "$t" ]]; then
         command echo "yazi-rs/plusins:git already installed"
-        ya pack -u # it can be failed.
+        ya pkg upgrade # it can be failed.
     else
-        ya pack -a yazi-rs/plugins:git
+        ya pkg add yazi-rs/plugins:git
     fi
 
     # tree-sitter-cli
